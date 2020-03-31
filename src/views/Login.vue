@@ -12,7 +12,9 @@
                 <el-input v-model="user.passWord" type="password"></el-input>
             </el-form-item>
             <div class="btn">
-                <el-button type="primary">
+                <el-button
+                    type="primary"
+                    @click="handleLogin">
                     Login
                 </el-button>
             </div>
@@ -25,16 +27,25 @@
 
     @Component({
         name: "Login",
-        components: {
-            Login,
-        }
     })
     export default class Login extends Vue {
 
-        private user: object = {
+        private user: any = {
             userName: "",
             passWord: "",
         };
+
+        get checkUser() {
+            return this.user.userName.length > 5 && this.user.passWord > 5;
+        }
+
+        handleLogin() {
+            if (this.checkUser) {
+                this.$router.push({path: '/Index'});
+            } else {
+                this.$message.warning('Please checked username or password')
+            }
+        }
     }
 </script>
 
