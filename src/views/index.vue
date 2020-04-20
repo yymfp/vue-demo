@@ -2,18 +2,23 @@
     <div class="index">
         <OrderList titleName="orderListTitle"/>
         <AddOrderList @getName="getName"/>
-        <el-upload
-            action="https://jsonplaceholder.typicode.com/posts/"
-            :before-upload="beforeUpload"
-            :file-list="fileList"
-            list-type="picture-card">
-        </el-upload>
-        <el-upload
-            action="https://jsonplaceholder.typicode.com/posts/"
-            :file-list="fileListNormal"
-            :before-upload="beforeUploadNormal"
-            list-type="picture-card">
-        </el-upload>
+        <div>
+            <el-upload
+                action="https://jsonplaceholder.typicode.com/posts/"
+                :before-upload="beforeUpload"
+                :file-list="fileList"
+                list-type="picture-card">
+            </el-upload>
+            <el-upload
+                action="https://jsonplaceholder.typicode.com/posts/"
+                :file-list="fileListNormal"
+                :before-upload="beforeUploadNormal"
+                list-type="picture-card">
+            </el-upload>
+        </div>
+        <div>
+            <UploadFile fileTypes="*" :isMultiple="true" />
+        </div>
     </div>
 </template>
 
@@ -22,12 +27,14 @@
     import OrderList from "@/components/OrderList.vue"
     import AddOrderList from "@/components/AddOrderList.vue"
     import util from "@/util/upLoadImg"
+    import UploadFile from "@/components/uploadFile.vue"
 
     @Component({
         name: 'index',
         components: {
             OrderList,
-            AddOrderList
+            AddOrderList,
+            UploadFile
         }
     })
     export default class Index extends Vue {
@@ -59,6 +66,6 @@
     }
 </script>
 
-<style scoped>
+<style scoped lang="less">
 
 </style>
