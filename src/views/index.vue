@@ -1,23 +1,23 @@
 <template>
     <div class="index">
-        <OrderList titleName="orderListTitle"/>
-        <AddOrderList @getName="getName"/>
+<!--        <OrderList titleName="orderListTitle"/>-->
+<!--        <AddOrderList @getName="getName"/>-->
+<!--        <div>-->
+<!--            <el-upload-->
+<!--                action="https://jsonplaceholder.typicode.com/posts/"-->
+<!--                :before-upload="beforeUpload"-->
+<!--                :file-list="fileList"-->
+<!--                list-type="picture-card">-->
+<!--            </el-upload>-->
+<!--            <el-upload-->
+<!--                action="https://jsonplaceholder.typicode.com/posts/"-->
+<!--                :file-list="fileListNormal"-->
+<!--                :before-upload="beforeUploadNormal"-->
+<!--                list-type="picture-card">-->
+<!--            </el-upload>-->
+<!--        </div>-->
         <div>
-            <el-upload
-                action="https://jsonplaceholder.typicode.com/posts/"
-                :before-upload="beforeUpload"
-                :file-list="fileList"
-                list-type="picture-card">
-            </el-upload>
-            <el-upload
-                action="https://jsonplaceholder.typicode.com/posts/"
-                :file-list="fileListNormal"
-                :before-upload="beforeUploadNormal"
-                list-type="picture-card">
-            </el-upload>
-        </div>
-        <div>
-            <UploadFile fileTypes="*" :isMultiple="true" />
+            <UploadFile :isAllowFile="true" :isMultiple="true" />
         </div>
     </div>
 </template>

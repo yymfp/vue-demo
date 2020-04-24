@@ -21,12 +21,14 @@
     export default class HoverMask extends Vue {
         @Prop({default: ''}) pictureFile!: any // 需要操作的图片
 
+        @Prop({default: ''}) pictureFileList!: any // 图片列表
+
         handleShow() {
-            this.$emit('handleShow', this.pictureFile)
+            this.$emit('handleShow', this.pictureFile, this.pictureFileList)
         }
 
         handleDelete() {
-            this.$emit('handleDelete', this.pictureFile)
+            this.$emit('handleDelete', this.pictureFile, this.pictureFileList)
         }
     }
 </script>
