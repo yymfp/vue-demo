@@ -1,4 +1,4 @@
-<template>
+<template xmlns:v-slot="http://www.w3.org/1999/XSL/Transform">
     <div class="index">
         <OrderList titleName="orderListTitle"/>
         <AddOrderList @getName="getName"/>
@@ -21,6 +21,16 @@
         </div>
         <Turntable/>
         <el-button type="text" @click="handleOpen">open</el-button>
+            <SlotDemo :slotList="listData">
+                <template  v-slot:default="{myData: list}">
+                    <ul>
+                        <li>
+                            {{list.name}}
+                            <span v-show="list.age > 21">:{{ list.age }}</span>
+                        </li>
+                    </ul>
+                </template>
+            </SlotDemo>
     </div>
 </template>
 
@@ -32,6 +42,7 @@
     import util from "@/util"
     import UploadFile from "@/components/uploadFile.vue"
     import Turntable from "@/components/Turntable.vue"
+    import SlotDemo from "@/components/slotDemo.vue"
 
     @Component({
         name: 'index',
@@ -39,7 +50,8 @@
             OrderList,
             AddOrderList,
             UploadFile,
-            Turntable
+            Turntable,
+            SlotDemo,
         }
     })
     export default class Index extends Vue {
@@ -50,6 +62,29 @@
             width: 100,
             height: 100,
         }
+
+        listData: Array<object> = [
+            {
+                name: 'jack',
+                age: 20,
+                desc: 'haha',
+            },
+            {
+                name: 'lisa',
+                age: 22,
+                desc: 'xixi',
+            },
+            {
+                name: 'tom',
+                age: 23,
+                desc: 'heihei',
+            },
+            {
+                name: 'peter',
+                age: 24,
+                desc: 'hello',
+            }
+        ]
 
         fileList: any[] = []
 
